@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import "./App.css";
+import Card from "./components/card/card";
 
 function App() {
+  
+  const [card, setCard] = useState({});
+
+  //gets cards
+  let getCard = () => {
+    axios.get("https://api.lib.byu.edu/leaflet/item").then(card => {
+      //set state using hooks
+      setCard(card.data);
+    });
+  };
+
+  //submits rating
+  let submit = (id, type) => {
+    //each time you submit a rating requst a new card
+    getCard();
+
+    //ternary to determine what to put in body
+    let liked = type === "Yes" ? true : false;
+
+    axios
+      .post("https://api.lib.byu.edu/leaflet/users/123/ratings", {
+        itemID: id,
+        rating: liked
+      })
+      .then(res => console.log("response", res.data, res.status));
+  };
+
+  //useEffect gets cards upon loading page
+  useEffect(() => {
+    getCard();
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* {render card component} */}
+      <Card card={card} submit={submit} />
     </div>
   );
 }

@@ -1,0 +1,84 @@
+.flex {
+  display: flex;
+}
+
+.card {
+  border: solid #dee6eb 2px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px 2px #dee6eb;
+}
+
+.header {
+  color: #85919b;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-bottom: solid lightgray 2px;
+}
+
+.content {
+  padding-left: 35px;
+  padding-right: 35px;
+  height: 365px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.imgContainer {
+  margin-right: 35px;
+}
+img {
+  height: auto;
+  width: 100%;
+  min-width: 210px;
+  min-height: 100px;
+  border: solid gray 1px;
+}
+
+.info {
+  justify-content: space-between;
+  flex-direction: column;
+  padding-top: 10px;
+}
+
+.topInfo {
+  justify-content: space-between;
+  flex-direction: column;
+  height: 21%;
+}
+
+.title {
+  color: #2d3a42;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: solid lightgray 0.2px;
+}
+.author {
+  color: #a6aaae;
+  font-size: 12px;
+}
+.type {
+  color: #1eada0;
+  font-size: 12px;
+  font-weight: 800;
+}
+.description {
+  color: gray;
+  font-size: 0.9vw;
+  height: 78%;
+  align-items: center;
+  line-height: 1.2;
+}
+
+.buttons {
+  justify-content: center;
+  align-content: center;
+  margin-bottom: 50px;
+}
+
+.submitButton {
+  padding: 7px;
+}
